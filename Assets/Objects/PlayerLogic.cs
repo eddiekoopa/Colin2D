@@ -9,8 +9,6 @@ namespace Player
         public float movingSpeed;
         public float jumpForce;
         private float moveInput;
-        public float gravity;
-        private float yVelocity;
 
         private bool facingRight = false;
 
@@ -30,12 +28,12 @@ namespace Player
 
         private void FixedUpdate()
         {
-            
         }
 
         void Update()
         {
             CheckGround();
+
             if (Input.GetButton("Horizontal"))
             {
                 moveInput = Input.GetAxis("Horizontal");
@@ -44,8 +42,7 @@ namespace Player
             }
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
-                //rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-                yVelocity -= jumpForce;
+                rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             }
 
             if (facingRight == false && moveInput > 0)
@@ -56,19 +53,6 @@ namespace Player
             {
                 Flip();
             }
-
-            if (!isGrounded)
-            {
-                yVelocity += gravity;
-            }
-            else
-            {
-                yVelocity = 0;
-            }
-
-            Vector3 newPos = transform.localPosition;
-            newPos.y += yVelocity;
-            transform.localPosition = newPos;
         }
 
         private void Flip()
@@ -81,8 +65,7 @@ namespace Player
 
         private void CheckGround()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
-            isGrounded = colliders.Length > 1;
+            isGrounded = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.1f).Length > 1.8;
         }
     }
 }

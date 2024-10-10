@@ -212,7 +212,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.55
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -383,7 +383,6 @@ GameObject:
   - component: {fileID: 1109766006}
   - component: {fileID: 1109766005}
   - component: {fileID: 1109766007}
-  - component: {fileID: 1109766008}
   - component: {fileID: 1109766009}
   - component: {fileID: 1109766010}
   m_Layer: 0
@@ -471,14 +470,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109766004}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -487,24 +486,9 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1109766008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109766004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
+  m_Constraints: 4
 --- !u!114 &1109766009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,9 +501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea17b1e06a82e9459c77d0ff5f7efcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 4.04
-  jumpForce: 9.5
-  gravity: 0.3
+  movingSpeed: 5.5
+  jumpForce: 20
   deathState: 0
   groundCheck: {fileID: 47911109}
 --- !u!61 &1109766010
@@ -3985,7 +3968,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1109766006}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 6.55
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
