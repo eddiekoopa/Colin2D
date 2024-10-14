@@ -39,10 +39,22 @@ public class CutsceneManager : MonoBehaviour
         if (!done)
         {
             // If tick reaches delay tick
-            if (tick++ >= myDelay)
+            tick += Time.fixedDeltaTime + 1;
+
+            if (tick >= myDelay)
             {
+                Debug.Log($"tick is: " + tick + " and delta is: " + Time.fixedDeltaTime + 1);
                 // Reset Tick
                 tick = 0;
+                // Skip backslashes and space
+                if (myText[idx] == ' ')
+                {
+                    typer += myText[idx++];
+                }
+                if (myText[idx] == '\\')
+                {
+                    typer += myText[idx++];
+                }
                 // Add character to the typer
                 typer += myText[idx++];
                 // Update the typer
